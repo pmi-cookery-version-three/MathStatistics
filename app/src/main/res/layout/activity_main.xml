@@ -1,0 +1,224 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="fill_parent"
+    android:layout_height="fill_parent">
+
+    <ScrollView
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginLeft="16dp"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        android:layout_marginStart="16dp">
+
+
+        <android.support.constraint.ConstraintLayout
+            android:layout_width="fill_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <!--Первая строка -->
+            <Button
+                android:id="@+id/battonRandValue"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="8dp"
+                android:layout_marginTop="8dp"
+                android:onClick="onMouseClickCreate"
+                android:text="Создать"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                android:layout_marginStart="8dp" />
+
+            <EditText
+                android:id="@+id/editTextRandValue"
+                android:layout_width="94dp"
+                android:layout_height="wrap_content"
+                android:layout_marginLeft="46dp"
+                android:layout_marginTop="8dp"
+                android:ems="10"
+                android:inputType="number"
+                app:layout_constraintLeft_toRightOf="@+id/battonRandValue"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:layout_conversion_absoluteHeight="42dp"
+                tools:layout_conversion_absoluteWidth="94dp"
+                tools:layout_conversion_absoluteX="104dp"
+                tools:layout_conversion_absoluteY="9dp"
+                android:layout_marginStart="46dp" />
+
+
+            <!-- Ранжированные данные -->
+            <Button
+                android:id="@+id/battonCalculation"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="8dp"
+                android:onClick="onMouseClickCalculation"
+                android:text="Расчет"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView" />
+
+            <HorizontalScrollView
+                android:id="@+id/horizontalScrollViewData"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/battonCalculation"
+                android:layout_marginTop="15dp">
+
+                <TableLayout
+                    android:id="@+id/tableLayoutData"
+                    android:layout_width="wrap_content"
+                    android:layout_height="100dp"
+                    android:background="#00FF00">
+
+                </TableLayout>
+            </HorizontalScrollView>
+
+            <TextView
+                android:id="@+id/textViewSturges"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="h = "
+                android:textSize="18sp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/horizontalScrollViewData"
+                android:layout_marginTop="15dp" />
+
+
+            <!-- Частота частости -->
+            <HorizontalScrollView
+                android:id="@+id/horizontalScrollFC"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                app:layout_constraintLeft_toLeftOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewSturges">
+
+                <TableLayout
+                    android:id="@+id/tableLayoutFC"
+                    android:layout_width="match_parent"
+                    android:layout_height="250dp"
+                    android:background="#00FF00">
+
+                </TableLayout>
+            </HorizontalScrollView>
+
+            <!-- x min -->
+            <TextView
+                android:id="@+id/textViewXmin"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="x min = "
+                android:textSize="18sp"
+                android:layout_marginTop="55dp"
+                app:layout_constraintTop_toBottomOf="@+id/horizontalScrollFC"
+                android:layout_marginLeft="16dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginStart="16dp">
+
+            </TextView>
+
+            <!-- x max -->
+            <TextView
+                android:id="@+id/textViewXmax"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="x max = "
+                android:textSize="18sp"
+                app:layout_constraintTop_toBottomOf="@+id/textViewXmin"
+                android:layout_marginLeft="8dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginStart="8dp">
+
+            </TextView>
+
+            <!-- x нач -->
+            <TextView
+                android:id="@+id/textViewXfirst"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text=""
+                android:textSize="18sp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/textViewXmax"
+                android:layout_marginLeft="8dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginStart="8dp"></TextView>
+
+            <!-- Графики -->
+            <!-- Полигон -->
+            <com.jjoe64.graphview.GraphView
+                android:id="@+id/polygon"
+                android:layout_width="344dp"
+                android:layout_height="300dp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/textViewXfirst"
+                android:layout_marginLeft="8dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginStart="8dp" />
+
+
+            <!-- ввборочное среднее x^_в ( вроде MX ) -->
+            <TextView
+                android:id="@+id/textViewMX"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="MX = "
+                android:textSize="18sp"
+                android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/polygon"
+                android:layout_marginLeft="8dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginStart="8dp"></TextView>
+
+            <!-- Выборачная дисперсия ( вроде D_в ) -->
+            <TextView
+                android:id="@+id/textViewDX"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="DX = "
+                android:textSize="18sp"
+                app:layout_constraintTop_toBottomOf="@+id/textViewMX"
+                android:layout_marginLeft="8dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginStart="8dp"></TextView>
+
+            <!-- Мода( σ ) -->
+            <TextView
+                android:id="@+id/textViewσ"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="σ = "
+                android:textSize="18sp"
+                app:layout_constraintTop_toBottomOf="@+id/textViewDX"
+                android:layout_marginLeft="8dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginStart="8dp"></TextView>
+
+            <HorizontalScrollView
+                android:id="@+id/horizontalScrollView"
+                android:layout_width="300dp"
+                android:layout_height="60dp"
+                app:layout_constraintLeft_toLeftOf="parent"
+                android:layout_marginTop="8dp"
+                app:layout_constraintTop_toBottomOf="@+id/battonRandValue">
+
+                <TableLayout
+                    android:id="@+id/tableLayout"
+                    android:layout_width="300dp"
+                    android:layout_height="60dp"
+                    android:background="#00FF00">
+
+                </TableLayout>
+            </HorizontalScrollView>
+
+
+        </android.support.constraint.ConstraintLayout>
+
+
+    </ScrollView>
+
+
+</android.support.constraint.ConstraintLayout>
